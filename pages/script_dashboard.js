@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         // Ambil data pengguna dari API
-        const userResponse = await fetch('http://127.0.0.1:5000/api/user', {
+        const userResponse = await fetch('https://faqih.pythonanywhere.com/api/user', {
             credentials: 'include'  // Pastikan cookie dikirim
         });
         if (!userResponse.ok) {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
 
         // Ambil data siswa dari API berdasarkan kelas
-        const siswaResponse = await fetch(`http://127.0.0.1:5000/api/siswa?kelas=${userData.kelas}`, {
+        const siswaResponse = await fetch(`https://faqih.pythonanywhere.com/api/siswa?kelas=${userData.kelas}`, {
             credentials: 'include'  // Pastikan cookie dikirim
         });
         if (!siswaResponse.ok) {
