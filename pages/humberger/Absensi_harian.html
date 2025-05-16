@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Harian</title>
+    <link rel="stylesheet" href="../style_dashboard.css">
+    <link rel="stylesheet" href="Css/style_absenharian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+        <div id="loadingScreen" style="display:none;">
+        <div class="loading-content">
+            <img src="../../yasifa.png" alt="Logo Yasifa" class="loading-logo">
+            <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Absensi Online</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html" class="active">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="hafalan.html">Hafalan Santri</a></li>
+                    <li><a href="Buat_Qr.html">QR Code Siswa</a></li>
+                    <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
+                    <li><a href="scan_qr.html">Scann Siswa</a></li>
+                    <li><a href="../Login_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">
+                    ☰
+                </button>
+                <h1>Absensi Harian</h1>
+            </header>
+            <section class="content">
+                <div class="card">
+                    <h3>Siswa yang Sudah Scan</h3>
+                    <table id="sudahScanTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                                <th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data siswa yang sudah scan akan dimasukkan di sini oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <h3>Siswa yang Belum Scan</h3>
+                    <table id="belumScanTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data siswa yang belum scan akan dimasukkan di sini oleh JavaScript -->
+                        </tbody>
+                    </table>
+                    <button class="main" id="submitAbsensiOrtu">Submit ke Orang Tua</button>
+                </div>
+                <button class="main" id="lihatDataOrtu">Absensi Siswa</button>
+                <table id="ortuTable" border="1" style="margin-top: 20px; display: none;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Status</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button class="main" id="kirimWA" class="btn-submit">Kirim Pesan WhatsApp</button>
+            </section>
+            <div id="jam" style="font-weight:bold; font-size:1.1em;"></div>
+            <footer>
+                <p>&copy; 2025 Sistem Absensi Sekolah</p>
+                <div class="watermark-xony">
+                    &copy; Develop by xony tim
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="script/script_asbsen_harian.js"></script>
+    <!-- <script src="../script_dashboard.js"></script> -->
+    <script>
+        function logout() {
+            fetch('http://localhost:5000/logout', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/Admin_guru/Login_admin.html';
+                    } else {
+                        console.error('Gagal logout');
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+        }
+        document.getElementById('hamburger').addEventListener('click', function () {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+    const hamburger = document.getElementById('hamburger');
+
+    // Toggle class 'hidden' pada sidebar
+    sidebar.classList.toggle('hidden');
+
+    // Toggle class 'collapsed' pada main content
+    mainContent.classList.toggle('collapsed');
+
+    // Toggle class 'open' pada tombol hamburger
+    hamburger.classList.toggle('open');
+});
+
+// filepath: [Absensi_harian.html](http://_vscodecontentref_/0)
+// Tambahkan di bawah event listener "lihatDataOrtuButton"
+document.getElementById('lihatDataOrtu').addEventListener('click', function() {
+    // ...kode lain untuk menampilkan data absensi...
+    document.getElementById('kirimWA').style.display = 'inline-block';
+});
+
+    </script>
+
+<script>
+function updateJam() {
+    const jam = document.getElementById('jam');
+    const now = new Date();
+    const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const waktu = now.toLocaleTimeString('id-ID', { hour12: false });
+    jam.textContent = `${tanggal} | ${waktu}`;
+}
+setInterval(updateJam, 1000);
+updateJam();
+</script>
+
+<script>
+    // Tampilkan loading saat klik menu sidebar
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Jika link mengarah ke halaman baru (bukan #)
+            if (this.getAttribute('href') && this.getAttribute('href') !== '#') {
+                document.getElementById('loadingScreen').style.display = 'flex';
+            }
+        });
+    });
+</script>
+<script>
+    window.onload = function() {
+        document.getElementById('loadingScreen').style.display = 'none';
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat QR Code</title>
+    <link rel="stylesheet" href="../style_dashboard.css">
+    <style>
+
+    </style>
+</head>
+<body>
+        <div id="loadingScreen" style="display:none;">
+        <div class="loading-content">
+            <img src="../../yasifa.png" alt="Logo Yasifa" class="loading-logo">
+            <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Absensi Online</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="hafalan.html">Hafalan Santri</a></li>
+                    <li><a href="Buat_Qr.html" class="active">QR Code Siswa</a></li>
+                    <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
+                     <li><a href="scan_qr.html">Scann Siswa</a></li>
+                    <li><a href="../../Login_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">
+                    ☰
+                </button>
+                <h1>Buat QR Code</h1>
+            </header>
+            <section class="content">
+                <div class="card">
+                    <h3>QR Code Siswa</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Siswa</th>
+                                <th class="none">QR Code</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody id="qrTableBody">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <div id="jam" style="font-weight:bold; font-size:1.1em;"></div>
+            <footer>
+                <p>&copy; 2025 Sistem Absensi Sekolah</p>
+                <div class="watermark-xony">
+                    &copy; Develop by xony tim
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="script/script_qr.js"></script>
+    <script>
+function updateJam() {
+    const jam = document.getElementById('jam');
+    const now = new Date();
+    const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const waktu = now.toLocaleTimeString('id-ID', { hour12: false });
+    jam.textContent = `${tanggal} | ${waktu}`;
+}
+setInterval(updateJam, 1000);
+updateJam();
+</script>
+
+<script>
+    // Tampilkan loading saat klik menu sidebar
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Jika link mengarah ke halaman baru (bukan #)
+            if (this.getAttribute('href') && this.getAttribute('href') !== '#') {
+                document.getElementById('loadingScreen').style.display = 'flex';
+            }
+        });
+    });
+</script>
+<script>
+    window.onload = function() {
+        document.getElementById('loadingScreen').style.display = 'none';
+    };
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const isMobile = window.innerWidth <= 600;
+    const thead = document.querySelector('table thead tr');
+    if (isMobile) {
+        // Hapus kolom QR Code di header
+        if (thead.children.length === 4) {
+            thead.removeChild(thead.children[2]);
+        }
+    }
+});
+</script>
+</body>
+</html>
