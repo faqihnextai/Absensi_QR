@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         // Ambil data siswa dari API
-        const response = await fetch('http://127.0.0.1:5000/api/siswa/qrcode', {
+        const response = await fetch('https://faqih.pythonanywhere.com/api/siswa/qrcode', {
             credentials: 'include'  // Pastikan cookie dikirim
         });
         if (!response.ok) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const downloadCell = row.insertCell();
                 const downloadLink = document.createElement('a');
                 downloadLink.textContent = 'Download';
-                downloadLink.href = `http://127.0.0.1:5000/download/qr/${student.nisn}`;
+                downloadLink.href = `https://faqih.pythonanywhere.com/download/qr/${student.nisn}`;
                 downloadLink.download = `${student.nama}_QR.png`;
 
                 // Paksa download dengan JS
