@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Ambil data siswa yang sudah scan
     async function fetchSudahScan() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/absensi-sudah-scan', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/absensi-sudah-scan', {
                 method: 'GET',
                 credentials: 'include' // Pastikan cookie dikirim
             });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Ambil data siswa yang belum scan
     async function fetchBelumScan() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/absensi-belum-scan', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/absensi-belum-scan', {
                 method: 'GET',
                 credentials: 'include' // Pastikan cookie dikirim
             });
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Fungsi untuk memuat data dari tabel absensi_harian_ortu
     async function fetchDataOrtu() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/lihat-absensi-ortu', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/lihat-absensi-ortu', {
                 method: 'GET',
                 credentials: 'include' // Pastikan cookie dikirim
             });
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.log("Data yang akan dikirim ke backend:", dataToSubmit); // Debugging
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/submit-absensi-ortu', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/submit-absensi-ortu', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',  // Pastikan cookie dikirim
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Fungsi untuk mengirim data ke WhatsApp
     kirimWAButton.addEventListener('click', async function () {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/kirim-wa-absensi', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/kirim-wa-absensi', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include' // Pastikan cookie dikirim
