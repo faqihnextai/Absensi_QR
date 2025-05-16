@@ -67,7 +67,7 @@
     <script src="script_dashboard.js"></script>
     <script>
         function logout() {
-            fetch('http://localhost:5000/logout', { method: 'POST' }) // Gunakan metode POST untuk logout
+            fetch('https://faqih.pythonanywhere.com//logout', { method: 'POST' }) // Gunakan metode POST untuk logout
                 .then(response => {
                     if (response.ok) {
                         window.location.href = '/Admin_guru/Login_admin.html'; // Redirect ke halaman login
