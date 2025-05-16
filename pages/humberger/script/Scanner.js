@@ -93,7 +93,7 @@ const NISNBersih = nisn.trim().replace(/^NISN\s*:\s*/i, '');
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/submit-absensi', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/submit-absensi', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(absensiData)
