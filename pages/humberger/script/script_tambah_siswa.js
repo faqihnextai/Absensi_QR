@@ -14,7 +14,7 @@ document.getElementById('formTambahSiswa').addEventListener('submit', async func
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/tambah-siswa', {
+        const response = await fetch('https://faqih.pythonanywhere.com/api/tambah-siswa', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ document.getElementById('formTambahSiswa').addEventListener('submit', async func
 
             // Tampilkan QR Code
             const qrCodeContainer = document.getElementById('qrCodeContainer');
-            qrCodeContainer.innerHTML = `<img src="http://127.0.0.1:5000${result.qr_code}" alt="QR Code Siswa">`;
+            qrCodeContainer.innerHTML = `<img src="https://faqih.pythonanywhere.com/${result.qr_code}" alt="QR Code Siswa">`;
 
             document.getElementById('formTambahSiswa').reset(); // Reset form setelah berhasil
         } else {
