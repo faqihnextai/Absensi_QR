@@ -25,7 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
             // Tunggu 2 detik lalu redirect
             setTimeout(() => {
-                window.location.href = '/Admin_guru/pages/dashboard_admin.html';
+                window.location.href = '/pages/dashboard_admin.html';
             }, 2000);
         } else {
             messageDiv.textContent = result.message;
