@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+    background: linear-gradient(135deg, #a8e063, #56ab2f); /* Gradien latar belakang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Mencegah scroll jika gradien melebihi layar */
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih semi-transparan */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(34,139,34,0.15); /* Bayangan yang lebih halus */
+    width: 350px;
+    text-align: center;
+    display: none; /* Sembunyikan saat loading */
+    border-top: 6px solid #43a047;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 2.2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px); /* Mengurangi sedikit agar tidak terlalu mepet */
+    padding: 12px;
+    border: 1.5px solid #43a047;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #388e3c;
+    box-shadow: 0 0 5px #a8e063;
+}
+
+button {
+    background: #43a047;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease; /* Efek transisi hover */
+    font-weight: bold;
+}
+
+button:hover {
+    background: #388e3c;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545;
+}
+
+.success {
+    color: #28a745;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-left: 35px; /* Ruang untuk ikon */
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    z-index: 9999;
+    background: #fff;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading-content {
+    text-align: center;
+}
+.loading-logo {
+    width: 90px;
+    margin-bottom: 18px;
+}
+.arabic-text {
+    font-size: 1.5em;
+    color: #388e3c;
+    margin-bottom: 18px;
+    font-family: 'Amiri', serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+.loader {
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #43a047;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
