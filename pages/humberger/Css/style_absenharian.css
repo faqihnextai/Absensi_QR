@@ -1,0 +1,153 @@
+/* Gaya untuk halaman Absensi Harian */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#kirimWA {
+  display: none;
+}
+/* Gaya untuk tombol */
+.main {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: block;
+    position: fixed; /* Tetapkan posisi tetap */
+    top: 20px; /* Posisikan di pojok kiri atas */
+    left: 20px; /* Posisikan di pojok kiri atas */
+    z-index: 1100; /* Pastikan tombol berada di atas konten lainnya */
+    transition: transform 0.3s ease, left 0.3s ease; /* Tambahkan transisi untuk efek halus */
+}
+
+.sidebar:hover .hamburger {
+    right: 1000; /* Pindahkan tombol sedikit ke kanan saat di-hover */
+    transform: rotate(90deg); /* Rotasi tombol saat di-hover */
+}
+
+.mai:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    z-index: 9999;
+    background: #fff;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading-content {
+    text-align: center;
+}
+.loading-logo {
+    width: 90px;
+    margin-bottom: 18px;
+}
+.arabic-text {
+    font-size: 1.5em;
+    color: #388e3c;
+    margin-bottom: 18px;
+    font-family: 'Amiri', serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+.loader {
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #43a047;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    table th, table td {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+    .hamburger{
+        left:300px;
+    }
+
+    #kirimWA {
+  display: none;
+}
+}

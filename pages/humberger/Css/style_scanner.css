@@ -1,0 +1,113 @@
+.scanner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.scanner-container video {
+    width: 100%;
+    max-width: 700px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+.card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+button {
+    margin-top: 0px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: f0ffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+} 
+
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    z-index: 9999;
+    background: #fff;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading-content {
+    text-align: center;
+}
+.loading-logo {
+    width: 90px;
+    margin-bottom: 18px;
+}
+.arabic-text {
+    font-size: 1.5em;
+    color: #388e3c;
+    margin-bottom: 18px;
+    font-family: 'Amiri', serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+.loader {
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #43a047;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+@media (max-width: 600px) {
+    .text{
+        font-size: 10px;
+    }
+    button{
+        padding: 5px 10px;
+    }
+    tabel th, table td {
+        padding: 5px;
+    } #absensiTable,
+  #absensiTable th,
+  #absensiTable td {
+    font-size: 10px !important;
+  }
+    th:nth-child(1), /* No */
+    th:nth-child(3), /* QR Code */
+    td:nth-child(1),
+    td:nth-child(3) {
+    display: none;
+  }
+}
