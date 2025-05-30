@@ -27,7 +27,7 @@
                     <li><a href="humberger/Buat_Qr.html">QR Code Siswa</a></li>
                     <li><a href="humberger/Tambah_data_siswa.html">Tambah Data Siswa</a></li>
                     <li><a href="humberger/scan_qr.html">Scann Siswa</a></li>
-                    <li><a href="../Login_admin.html" onclick="logout()">Logout</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -70,7 +70,7 @@
             fetch('https://faqih.pythonanywhere.com//logout', { method: 'POST' }) // Gunakan metode POST untuk logout
                 .then(response => {
                     if (response.ok) {
-                        window.location.href = '/Admin_guru/Login_admin.html'; // Redirect ke halaman login
+                        window.location.href = 'index.html'; // Redirect ke halaman login
                     } else {
                         console.error('Gagal logout');
                     }
