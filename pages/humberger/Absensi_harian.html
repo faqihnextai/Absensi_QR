@@ -28,7 +28,7 @@
                     <li><a href="Buat_Qr.html">QR Code Siswa</a></li>
                     <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
                     <li><a href="scan_qr.html">Scann Siswa</a></li>
-                    <li><a href="../Login_admin.html" onclick="logout()">Logout</a></li>
+                    <li><a href="" onclick="logout()">Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -103,7 +103,7 @@
             fetch('https://faqih.pythonanywhere.com/logout', { method: 'POST' })
                 .then(response => {
                     if (response.ok) {
-                        window.location.href = '/index.html';
+                        window.location.href = 'https://faqihnextai.github.io/Absensi_QR/';
                     } else {
                         console.error('Gagal logout');
                     }
