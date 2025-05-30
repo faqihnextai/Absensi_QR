@@ -140,9 +140,9 @@
         });
 
         function logout() {
-            fetch('http://127.0.0.1:5000/logout')
+            fetch('https://faqih.pythonanywhere.com/logout')
                 .then(() => {
-                    window.location.href = '/index.html'; // Redirect ke halaman login
+                    window.location.href = 'https://faqihnextai.github.io/Absensi_QR/'; // Redirect ke halaman login
                 })
                 
                 .catch(err => console.error('Error:', err));
